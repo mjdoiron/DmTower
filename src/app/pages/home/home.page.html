@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="page-wrapper">
+    <div class="desktop-column">
+      <ion-row class="row">
+        <ion-img src="../../../assets/img/dmTower.png">
+        </ion-img>
+      </ion-row>
+      <div class="row">
+        <ion-button expand="full" [routerLink]="'/session-start/join'">
+          Join Session
+        </ion-button>
+        <ion-button type="button" expand="full" [routerLink]="'/session-start/create'">
+          Start Session
+        </ion-button>
+      </div>
+      <ion-row justify-content-center class="row">
+        <a (click)="auth.logout()">Logout</a>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "DmTower",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

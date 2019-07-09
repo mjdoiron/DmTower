@@ -1,0 +1,21 @@
+<ion-content padding>
+	<div class="page-wrapper">
+		<div class="desktop-column">
+			<ion-row class="row">
+				<ion-img src="../../../assets/img/dmTower.png">
+				</ion-img>
+			</ion-row>
+			<div class="row">
+				<ion-button expand="full" (click)="auth.googleLogin()">
+					Sign In with Google
+				</ion-button>
+				<ion-button expand="full" (click)="auth.loginAnonymously()">
+					Sign In as Guest
+				</ion-button>
+			</div>
+			<ion-row justify-content-center class="row">
+				<p> </p>
+			</ion-row>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-content>
+	<div class="floating-back-button">
+		<ion-button fill="clear" (click)="nav.navigateBack('/home')">
+			<ion-icon slot="start" name="arrow-back"></ion-icon>
+			Back
+		</ion-button>
+	</div>
+	<ion-row justify-content-center align-items-center style="height: 100%">
+		<div id="card-wrapper">
+			<ion-card>
+				<user-card [save]="false"></user-card>
+			</ion-card>
+			<ion-card *ngIf="pageType == 'join'">
+				<ion-item>
+					<ion-input id="password-input" class="all-caps-input" placeholder="Enter Password" mask="AAA-AAA" [(ngModel)]="typedPassword"></ion-input>
+					<!-- <ion-icon slot="end" src="../../../assets/custom-ion-icons/qr-code.svg"></ion-icon> -->
+				</ion-item>
+				<ion-button expand="full" (click)="joinSession()">Join Session</ion-button>
+			</ion-card>
+			<ion-card *ngIf="pageType == 'create'">
+				<ion-button expand="full" (click)="startSession()">Start Session</ion-button>
+			</ion-card>
+		</div>
+	</ion-row>
+</ion-content> 

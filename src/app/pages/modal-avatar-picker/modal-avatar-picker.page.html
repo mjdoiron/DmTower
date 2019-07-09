@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select an Avatar</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div  style="display: flex; flex-wrap: wrap;">
+    <ion-card *ngFor="let avatar of avatars" style="flex-grow: 1; width: 28%;">
+      <img src="{{avatar}}" (click)="setAvatar(avatar)">
+    </ion-card>
+  </div>
+</ion-content>

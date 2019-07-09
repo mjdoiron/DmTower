@@ -1,0 +1,27 @@
+.page-wrapper {
+  padding: 8px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.desktop-column{
+  max-width: 360px !important;
+  margin: auto auto;
+  max-height: 100%;
+  
+  .row {
+    width: 100%;
+    margin: 12px 0;
+    height: 33%;
+
+    .image{
+      height: 375px;
+      width: 375px;
+      background-color: red;
+    }
+    ion-button {
+      margin: 6px auto;
+    }
+  
+  }
+}

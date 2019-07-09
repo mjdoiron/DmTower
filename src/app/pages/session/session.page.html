@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button icon-only (click)="leaveSession()">
+        <ion-icon name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-title>
+      Session
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <div id="chat-container">
+    <ng-container *ngIf="session$ | async as session; else loadingOrError">
+      <!-- <ion-infinite-scroll threshold="100px" position="top" (ionInfinite)="loadData($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll> -->
+
+
+      <ion-list id="chat-list">
+        <ion-item lines="none" style="height:100% !important; max-height:100% !important;" *ngFor="let msg of session.messages; trackBy: trackByCreated">
+          <ion-thumbnail *ngIf='msg.user.uid == this.currentUser.uid' slot="end">
+            <img class="user-img" [src]="msg.user?.photoURL">
+          </ion-thumbnail>
+          <ion-thumbnail *ngIf='msg.user.uid !== this.currentUser.uid' slot="start">
+            <img class="user-img" [src]="msg.user?.photoURL">
+          </ion-thumbnail>
+
+          <ion-label [style.backgroundColor]="msg.user.color" [style.color]="this.helperService.getContrastYIQ(msg.user.color)" *ngIf='msg.user.uid == this.currentUser.uid' style="text-align:right;padding: 8px 16px; border-radius: 16px;">{{ msg.content }}</ion-label>
+          <ion-label [style.backgroundColor]="msg.user.color" [style.color]="this.helperService.getContrastYIQ(msg.user.color)" *ngIf='msg.user.uid !== this.currentUser.uid' style="text-align:right;padding: 8px 16px; border-radius: 16px;">{{ msg.content }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ng-container>
+    <ng-template #loadingOrError>
+      <div *ngIf="wasNotFound$ | async; else loading">
+        <h1>Could not find the session. Try another code.</h1>
+        <ion-input [(ngModel)]=typedID></ion-input>
+        <ion-button (click)="joinSession()">Join Session</ion-button>
+      </div>
+      <ng-template #loading>
+        Loading users...
+      </ng-template>
+    </ng-template>
+
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="session$ | async as session;">
+  <ion-col id="input-col">
+    <ion-textarea auto-grow="true" rows='1' [(ngModel)]="newMsg" (keydown.enter)="submit(session.sessionID)"></ion-textarea>
+  </ion-col>
+  <ion-col id="send-col">
+    <ion-button color="primary" (click)="submit(session.sessionID)">Send</ion-button>
+
+  </ion-col>
+</ion-footer>

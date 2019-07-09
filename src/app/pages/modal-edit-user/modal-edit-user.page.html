@@ -1,0 +1,16 @@
+<ion-header>
+	<ion-toolbar text-center>
+		<ion-title>
+			Edit Player
+		</ion-title>
+		<ion-icon
+			id="close-button"
+			name="close"
+			slot="end"
+			(click)="closeModal()"
+		></ion-icon>
+	</ion-toolbar>
+</ion-header>
+<ion-content class="inner-content">
+	<user-card [user]="user" (onDismiss)="closeModal()" id="user-card"></user-card>
+</ion-content>

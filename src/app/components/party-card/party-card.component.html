@@ -1,0 +1,25 @@
+<ion-list id="party" *ngIf="session">
+	<ion-item lines="full" color="medium">
+		<ion-label class="session-label">Current Session</ion-label>
+		<ion-icon slot="end" name="person-add" (click)="addPlayer()"></ion-icon>
+		<ion-icon slot="end" name="exit" (click)="leaveParty()"></ion-icon>
+	</ion-item>
+	<ion-item *ngIf="dm$ | async as dm" lines="inset">
+		<ion-thumbnail slot="start">
+			<label class="user-avatar-label" icon-only button>
+				<img class="user-img" style.border-color="{{dm.color}}" src="{{dm.photoURL}}" />
+			</label>
+		</ion-thumbnail>
+		<ion-label>{{dm.displayName}}</ion-label>
+		<ion-icon *ngIf="dm.isCurrent" name="settings" slot="end" (click)="editPlayer(dm)"></ion-icon>
+	</ion-item>
+	<ion-item *ngFor="let player$ of players$ | async" lines="inset">
+		<ion-thumbnail slot="start">
+			<label class="user-avatar-label" icon-only button>
+				<img class="user-img" style.border-color="{{player$.color}}" src="{{player$.photoURL}}" />
+			</label>
+		</ion-thumbnail>
+		<ion-label>{{player$.displayName}}</ion-label>
+		<ion-icon *ngIf="player$.isCurrent" name="settings" slot="end" (click)="editPlayer(player$)"></ion-icon>
+	</ion-item>
+</ion-list>

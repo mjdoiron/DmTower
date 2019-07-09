@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar text-center>
+    <ion-title>Add Player</ion-title>
+    <ion-icon id="close-button" name="close" slot="end" (click)="closeModal()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="inner-content" >
+    <!-- <ion-row align-items-center>
+      <div class="qr-containter">
+        <qrcode [qrdata]="session.password" [size]="256" [level]="'M'"></qrcode>
+      </div>
+    </ion-row> -->
+    <ion-row>
+      <ion-button class="code-button" size="large" (click)="copyToClipboard()">
+        {{session.password}}
+        <ion-icon name="copy" slot="end" (click)="copyToClipboard()"></ion-icon>
+      </ion-button>
+    </ion-row>
+    <ion-row *ngIf="!this.platform.is('desktop')">
+      <ion-button class="code-button" color="secondary" size="large" (click)="copyToClipboard()">
+        Text Code
+        <ion-icon name="text" slot="end" (click)="copyToClipboard()"></ion-icon>
+      </ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-button class="code-button" color="tertiary" size="large" (click)="sendCodeEmail()">
+        Email Code
+        <ion-icon name="mail" slot="end" (click)="sendCodeEmail()"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-content>

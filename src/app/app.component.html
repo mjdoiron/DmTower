@@ -1,0 +1,24 @@
+<ion-app>
+	<ion-split-pane>
+		<ion-menu>
+			<ion-content>
+				<party-card></party-card>
+				<ion-footer id="side-menu-footer">
+					<ion-menu-toggle auto-hide="false">
+						<ion-item button lines="full" (click)="logout()">
+							<ion-icon slot="start" name="log-out"></ion-icon>
+							<ion-label>Log Out</ion-label>
+						</ion-item>
+					</ion-menu-toggle>
+					<!-- <ion-menu-toggle auto-hide="false">
+						<ion-item button lines="full" [routerLink]="'/settings'">
+							<ion-icon slot="start" name="settings"></ion-icon>
+							<ion-label>Settings</ion-label>
+						</ion-item>
+					</ion-menu-toggle> -->
+				</ion-footer>
+			</ion-content>
+		</ion-menu>
+		<ion-router-outlet main></ion-router-outlet>
+	</ion-split-pane>
+</ion-app>

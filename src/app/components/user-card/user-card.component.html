@@ -1,0 +1,79 @@
+<div id="wrapper">
+    <ion-card-title *ngIf="!save" style="padding:10px">Current User</ion-card-title>
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <label id="user-avatar-label" icon-only (click)="getAvatar()" button>
+          <img id="edit-user-img" [style.border-color]="tempUser.color" [(src)]="tempUser.photoURL">
+          <ion-icon id="edit-icon" [style.background-color]="tempUser.color" name="create"></ion-icon>
+        </label>
+      </ion-thumbnail>
+      <ion-input id="display-name" placeholder="Enter Display Name" [(value)]="tempUser.displayName" (input)='setName($event.target.value)' (ionChange)='setName($event.target.value)'></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#3D9970" (click)="changeColor('#3D9970')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#39CCCC" (click)="changeColor('#39CCCC')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#7FDBFF" (click)="changeColor('#7FDBFF')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#0074d9" (click)="changeColor('#0074d9')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#105396" (click)="changeColor('#105396')" name="square">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#2ECC40" (click)="changeColor('#2ECC40')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#01FF70" (click)="changeColor('#01FF70')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#FFDC00" (click)="changeColor('#FFDC00')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#FF851B" (click)="changeColor('#FF851B')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#FF4136" (click)="changeColor('#FF4136')" name="square">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#85144b" (click)="changeColor('#85144b')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#F012BE" (click)="changeColor('#F012BE')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#B10DC9" (click)="changeColor('#B10DC9')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#111111" (click)="changeColor('#111111')" name="square">
+        </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="square" class="color-square" style="color:#AAAAAA" (click)="changeColor('#AAAAAA')" name="square">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-button *ngIf="save" expand="full" (click)="saveUser()">Save</ion-button>    
+</div>

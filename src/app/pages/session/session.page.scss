@@ -1,0 +1,41 @@
+ion-content > .scroll-content{
+  margin-bottom: 56px;
+}
+ion-content {
+  .user-img {
+    border-radius: 12px;
+  }
+
+}
+ion-footer {
+	display: flex;
+	min-height: 48px !important;
+	background-color: lightgray !important;
+
+	.button-col {
+		max-width: 44px !important;
+	}
+	#input-col {
+		background-color: lightgray !important;
+
+		ion-textarea {
+      border-radius: 54px;
+      background-color: white !important;
+			border: 1px solid darkgray;
+			max-width: 100% !important;
+      margin: 0px !important;
+      padding: 0px 16px;
+      textarea {
+        width: 100%
+      }
+		}
+	}
+	#send-col {
+		max-width: 88px !important;
+		ion-button {
+			width: 90% !important;
+			height: 90% !important;
+			margin: auto !important;
+		}
+	}
+}
